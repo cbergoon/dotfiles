@@ -11,7 +11,10 @@
 
 #Prompt Default: \h:\W \u\$
 
-cd() { builtin cd "$@"; ls -G; }      			# cd:    Always list directory contents upon 'cd'
+cd() { builtin cd "$@"; ls -Ga; }                       # cd:    Always list directory contents upon 'cd'
+cdp() { builtin pushd "$@"; ls -Ga; }                   # cdp:   Always list directory contents upon 'cd'; use pushd
+alias back='popd'                                       # back:  Move back to previous directory
+alias sw='cd -'                                         # sw:    Switch to the previous directory
 alias f='open -a Finder ./'                 		# f:     Opens current directory in MacOS 
 alias lf='ls -Gl | grep ^d' 				# lf:    Only list directories
 alias lsd='ls -Gal | grep ^d' 				# lsd:   Only list directories, including hidden ones
